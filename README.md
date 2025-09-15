@@ -1,5 +1,5 @@
-# Lagrangian and Hamiltonian - Peter Mann
+# Analytical Mechanics - Nivaldo Lemos
 
-Solutions to selected problems on Lagrangian and Hamiltonian by Peter Mann.
+Solutions to selected problems on Analytical Mechanics by Nivaldo Lemos.
 
 Author: Franco Zacco

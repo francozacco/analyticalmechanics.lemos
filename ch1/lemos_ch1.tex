@@ -1,0 +1,146 @@
+\documentclass[11pt]{article}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{enumitem}
+\usepackage{amsmath}
+\usepackage{bm}
+\usepackage{adjustbox}
+\usepackage{mathrsfs}
+\usepackage{graphicx}
+\usepackage{siunitx}
+\usepackage[mathscr]{euscript}
+
+\title{\textbf{Solved selected problems of Analytical Mechanics by Nivaldo Lemos}}
+\author{Franco Zacco}
+\date{}
+
+\addtolength{\topmargin}{-3cm}
+\addtolength{\textheight}{3cm}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\hatr}{\bm{\hat{r}}}
+\newcommand{\hatx}{\bm{\hat{x}}}
+\newcommand{\haty}{\bm{\hat{y}}}
+\newcommand{\hatz}{\bm{\hat{z}}}
+\newcommand{\hatth}{\bm{\hat{\theta}}}
+\newcommand{\hatphi}{\bm{\hat{\phi}}}
+\newcommand{\hatrho}{\bm{\hat{\rho}}}
+\newcommand{\ei}[1]{\vec{\bm{e}}_#1}
+\theoremstyle{definition}
+\newtheorem*{solution*}{Solution}
+\renewcommand*{\proofname}{\textbf{Solution}}
+
+\begin{document}
+\maketitle
+\thispagestyle{empty}
+
+\begin{proof}{\textbf{1.1}}
+Let
+\begin{align*}
+    (x^2 + y^2)dx + xzdz = 0 \qquad (x^2 + y^2)dy + yzdz = 0
+\end{align*}
+be constraints.
+\begin{itemize}
+\item[(a)] We have two constraints that can be expressed as 1-forms
+$\omega^1 = 0$ and $\omega^2 = 0$ where
+\begin{align*}
+    \omega^1 = (x^2 + y^2)dx + xzdz  \qquad \omega^2 = (x^2 + y^2)dy + yzdz
+\end{align*}
+Also, $d\omega^1$ and $d\omega^2$ are
+\begin{align*}
+    d\omega^1 &= 2ydy\wedge dx + zdx\wedge dz\quad\text{and}\quad
+    d\omega^2 = 2xdx\wedge dy + zdy\wedge dz
+\end{align*}
+So, let us consider them separately, i.e. we want to compute
+$d\omega^1 \wedge \omega^1$ and $d\omega^2 \wedge \omega^2$ as follows
+\begin{align*}
+    d\omega^1 \wedge \omega^1
+    &= (2ydy\wedge dx + zdx\wedge dz) \wedge ((x^2 + y^2)dx + xzdz)\\
+    &= 2xyz~dy\wedge dx \wedge dz
+\end{align*}
+And
+\begin{align*}
+    d\omega^2 \wedge \omega^2
+    &= (2xdx\wedge dy + zdy\wedge dz) \wedge ((x^2 + y^2)dy + yzdz)\\
+    &= 2xyz~dx\wedge dy \wedge dz
+\end{align*}
+We see that $d\omega^1 \wedge \omega^1 \neq 0$ unless $x=y=z=0$ and the
+same happens for $d\omega^2 \wedge \omega^2$.
+
+Therefore, they are not integrable when considered separately.
+
+\item[(b)]
+The 2-form $\Omega$ defined by $\Omega = \omega^1 \wedge \omega^2$ is given by
+\begin{align*}
+    \Omega &= (x^2 + y^2)dx + xzdz \wedge (x^2 + y^2)dy + yzdz\\
+    &= (x^2 + y^2)dx \wedge (x^2 + y^2)dy + (x^2 + y^2)dx \wedge yzdz\\
+    &\quad+ xzdz \wedge (x^2 + y^2)dy\\
+    &= (x^2 + y^2)^2 dx \wedge dy + yz(x^2 + y^2) dx \wedge dz
+    + xz(x^2 + y^2) dz \wedge dy
+\end{align*}
+It follows that
+\begin{align*}
+    d\omega^1 \wedge \Omega
+    &= 2y(x^2 + y^2)^2 dy \wedge dx \wedge dx\wedge dy
+    + 2y^2z(x^2 + y^2) dy\wedge dx \wedge dx \wedge dz\\
+    &\quad+ 2yxz(x^2 + y^2) dy\wedge dx \wedge dz \wedge dy
+    + z(x^2 + y^2)^2 dx \wedge dz \wedge dy \wedge dx\\
+    &\quad+ yz^2(x^2 + y^2) dx\wedge dz \wedge dx \wedge dz
+    + xz^2(x^2 + y^2) dx\wedge dz \wedge dz \wedge dy\\
+    &= 0
+\end{align*}
+And in the same way $d\omega^2 \wedge \Omega = 0$.
+
+Therefore, the constraints are integrable when considered together.
+
+On the other hand, let $x,y,z \neq 0$ then we see that
+\begin{align*}
+    d \ln\frac{y}{x} = \frac{1}{y}dy-\frac{1}{x}dx
+\end{align*}
+Also, let us consider the following 
+\begin{align*}
+    y\omega^1 - x\omega^2 &= y(x^2 + y^2)dx + xyzdz - x(x^2 + y^2)dy - xyzdz\\
+    &= (x^2 + y^2)(ydx - xdy)
+\end{align*}
+But since $\omega^1 = \omega^2 = 0$ then must be that
+\begin{align*}
+    ydx - xdy &= 0\\
+    \frac{1}{y}dy - \frac{1}{x}dx &= 0
+\end{align*}
+Then the constraints are equivalent to $d \ln(y/x) = 0$.
+
+Now, considering the combination
+\begin{align*}
+    x\omega^1 + y\omega^2 &= x(x^2 + y^2)dx + x^2zdz + y(x^2 + y^2)dy + y^2zdz\\
+    &= (x^2 + y^2)(xdx + ydy + zdz)
+\end{align*}
+Must be that $xdx + ydy + zdz = 0$ but we see that
+\begin{align*}
+    d(x^2 + y^2 + z^2) = xdx + ydy + zdz
+\end{align*}
+Therefore, the constraints are equiavalent also to $xd(x^2 + y^2 + z^2) = 0$.
+
+\cleardoublepage
+\item[(c)] Finally, integrating the equations
+\begin{align*}
+    xd(x^2 + y^2 + z^2) = 0 \quad\text{and}\quad d\ln\frac{y}{x} = 0
+\end{align*}
+We get that
+\begin{align*}
+    \int d(x^2 + y^2 + z^2) &= 0\\
+    x^2 + y^2 + z^2 + C_1' &= 0\\
+    x^2 + y^2 + z^2 &= C_1
+\end{align*}
+And
+\begin{align*}
+    \int d \ln\frac{y}{x} &= 0\\
+   \ln\frac{y}{x} + C_2' &= 0\\
+   \frac{y}{x} &= 1 - e^{C_2'}\\
+   y &= C_2 x
+\end{align*}
+Where we renamed $C_1 = -C_1'$ and $C_2 = 1 - e^{C_2'}$.
+\end{itemize}
+\end{proof}
+
+\end{document}
