@@ -8,6 +8,7 @@
 \usepackage{mathrsfs}
 \usepackage{graphicx}
 \usepackage{siunitx}
+\usepackage{physics}
 \usepackage[mathscr]{euscript}
 
 \title{\textbf{Solved selected problems of Analytical Mechanics by Nivaldo Lemos}}
@@ -143,4 +144,799 @@ Where we renamed $C_1 = -C_1'$ and $C_2 = 1 - e^{C_2'}$.
 \end{itemize}
 \end{proof}
 
+\cleardoublepage
+\begin{proof}{\textbf{1.2}}
+Let us consider the system from Example 1.18 in the case where
+$m_1 = m_2 = m_3 = m$ then the equations of motion become
+\begin{align*}
+    m\ddot{x}_2 - \frac{k}{2}(x_3 - x_2 - l) &= 0\\
+    m\ddot{x}_3 - mg + k(x_3 - x_2 -l) &= 0
+\end{align*}
+Let us define $y = x_3 - x_2 - l$ then
+\begin{align*}
+    \ddot{y} &= \ddot{x}_3 - \ddot{x}_2
+\end{align*}
+Then, subtracting the first equation from the second one we get that
+\begin{align*}
+    m\ddot{x}_3 + k(x_3 - x_2 -l) - m\ddot{x}_2 + \frac{k}{2}(x_3 - x_2 - l) &= mg\\
+    (\ddot{x}_3 - \ddot{x}_2) + \frac{3k}{2m}(x_3 - x_2 - l)&= g\\
+    \ddot{y} + \frac{3k}{2m}y &= g
+\end{align*}
+We know that in terms of $y$ the solution to this equation is
+\begin{align*}
+    y(t) = C_1\sin(\sqrt{\frac{3k}{2m}}t) + C_2\cos(\sqrt{\frac{3k}{2m}}t) 
+    + \frac{2gm}{3k}
+\end{align*}
+or letting $\omega = \sqrt{\frac{3k}{2m}}$ we get that
+\begin{align*}
+    y(t) = C_1\sin(\omega t) + C_2\cos(\omega t) + \frac{2mg}{3k}
+\end{align*}
+Using the initial conditions $x_2 = 0$ and $x_3 = l$ we can determine $C_2$.
+We see that $y(t=0) = l - 0 - l = 0$ then $C_2 = -\frac{2mg}{3k}$.
+\\
+On the other hand,
+\begin{align*}
+    \dot{y}(t) = C_1\omega\cos(\omega t) - C_2\omega \sin(\omega t)
+\end{align*}
+And since the system starts from rest i.e. $\dot{y} = 0$ we get that 
+$C_1 = 0$. Therefore the equation becomes
+\begin{align*}
+    y(t) = \frac{2mg}{3k}(1 - \cos(\omega t)) = x_3 - x_2 - l
+\end{align*}
+So, replacing in the first original differential equation we get that
+\begin{align*}
+    \ddot{x}_2 + \frac{g}{3}(\cos(\omega t) -1) = 0
+\end{align*}
+Integrating with respect to $t$ gives us
+\begin{align*}
+    \dot{x}_2 &= -\frac{g}{3} \int (\cos(\omega t) -1)~dt =
+    \frac{g}{3\omega}\bigg[\omega t-\sin(\omega t)\bigg] + C
+\end{align*}
+Where $C = 0$ since $\dot{x}_2 = 0$ at $t = 0$. Integrating again
+\begin{align*}
+    x_2 &= \frac{g}{3}\int\bigg[-\frac{1}{\omega}\sin(\omega t) + t\bigg]~dt\\
+    &= \frac{g}{3}\frac{\cos(\omega t)}{\omega^2} + \frac{g}{6}t^2 + C\\
+    &= \frac{2mg}{9k}\cos(\omega t) + \frac{g}{6}t^2 + C
+\end{align*}
+Where we replaced the value of $\omega$. Now since $x_2 = 0$ when $t = 0$ we
+have that $C = -2mg/9k$, so, finally
+\begin{align*}
+    x_2 = \frac{2mg}{9k}(\cos(\omega t) - 1) + \frac{g}{6}t^2
+\end{align*}
+From the equation we got for $\dot{x}_2$, let $t = \pi/2\omega$, at this
+moment $\sin(\omega t) = 1$ which is as negative as $-\sin(\omega t)$ can get.
+Hence
+\begin{align*}
+    \omega t - \sin(\omega t) = \frac{\pi}{2} - 1 
+\end{align*}
+But since $\pi/2 > 1$, then, $\dot{x}_2 > 0$ at this moment. For any point later,
+$t$ will grow even more and hence $\omega t - \sin(\omega t)$ will be positive.
+\\
+Therefore if $t > 0$ then $\dot{x}_2 > 0$.
+\end{proof}
+
+\cleardoublepage
+\begin{proof}{\textbf{1.5}}
+Let us consider Atwood's machine shown in Fig. 1.10. The string connecting
+$M$ and $m$ must be inextensible, so, let $x$ be the vertical coordinate
+which determines the position of $M$, then must be that $x + c + r = l$ where $l$
+is the constant length of the string and $c$ is the length between pulleys.
+\\
+The kinetic energy experienced by $M$ is then $T_M = M\dot{x}^2/2 = M\dot{r}^2/2$.
+\\
+So the kinetic energy of the system is
+\begin{align*}
+    T = \frac{M}{2}\dot{r}^2 + \frac{m}{2}(\dot{r}^2 + r^2\dot{\theta}^2)
+    = \frac{m + M}{2}\dot{r}^2 + \frac{m}{2}r^2\dot{\theta}^2
+\end{align*}
+On the other hand, for the potential energy since the string is inextensible
+then any change in the $r$ coordinate will imply a change in potential energy
+for the $M$ mass so we can write that
+\begin{align*}
+    V = Mgr - mgr\cos\theta = gr(M - m\cos\theta)
+\end{align*}
+Therefore, the Lagrangian is
+\begin{align*}
+    L = T - V
+    = \frac{m + M}{2}\dot{r}^2 + \frac{m}{2}r^2\dot{\theta}^2
+    - gr(M - m\cos\theta)
+\end{align*}
+Now, we want to write Lagrange's equations for the system. We compute
+first the derivatives
+\begin{align*}
+    \pdv{L}{\dot{r}} &= (m + M)\dot{r} &
+    \pdv{L}{r} &= mr\dot{\theta}^2 - g(M -m\cos\theta)\\
+    \pdv{L}{\dot{\theta}} &= mr^2\dot{\theta} &
+    \pdv{L}{\theta} &= -mgr\sin\theta
+\end{align*}
+Then the Lagrange's equations are
+\begin{align*}
+    \dv{t}(\pdv{L}{\dot{r}}) - \pdv{L}{r}
+    &= (m + M)\ddot{r} - mr\dot{\theta}^2 + g(M -m\cos\theta) = 0\\
+    \dv{t}(\pdv{L}{\dot{\theta}}) - \pdv{L}{\theta}
+    &= mr(2\dot{\theta}\dot{r} + r\ddot{\theta}) + mgr\sin\theta = 0
+\end{align*}
+\end{proof}
+
+\cleardoublepage
+\begin{proof}{\textbf{1.6}}
+Let us consider Huygens' cycloidal pendulum with the following parametric
+equations
+\begin{align*}
+    x = R(\theta - \sin\theta) \qquad y = R(1 - \cos\theta)
+\end{align*}
+where the vertical $y$-axis points downward.
+\\
+Then the kinetic energy of the system is given by
+\begin{align*}
+    T &= \frac{m}{2}(\dot{x}^2 + \dot{y}^2)\\
+    &= \frac{m}{2}R^2[(\dot\theta - \dot{\theta}\cos\theta)^2 + \dot{\theta}^2\sin^2\theta]\\
+    &= \frac{m}{2}R^2[\dot\theta^2 - 2\dot\theta^2\cos\theta
+    + \dot\theta^2\cos^2\theta + \dot\theta^2\sin^2\theta]\\
+    &= \frac{m}{2}R^2[1 - 2\cos\theta + 1]\dot\theta^2\\
+    &= 2mR^2\bigg[\frac{1 - \cos\theta}{2}\bigg]\dot\theta^2\\
+    &= 2mR^2\sin^2\bigg(\frac{\theta}{2}\bigg)\dot\theta^2
+\end{align*}
+Where we used the trigonometric identity $\sin^2(\theta/2) = (1 - \cos\theta)/2$.
+\\
+On the other hand, the potential energy only depends on $y$ and since the
+$y$-axis points downward we have that
+\begin{align*}
+    V = -mgy =-mgR(1-\cos\theta)
+\end{align*}
+Therefore, the Lagrangian of the system is
+\begin{align*}
+    L = T - V = 2mR^2\sin^2\bigg(\frac{\theta}{2}\bigg)\dot\theta^2 + mgR(1-\cos\theta)
+\end{align*}
+Let now, $u = \cos(\theta/2)$ then $\theta = 2\arccos(u)$, so the Lagrangian in
+terms of $u$ is given by
+\begin{align*}
+    L &= 2mR^2\sin^2(\arccos(u))\bigg(-\frac{2\dot{u}}{\sqrt{1 - u^2}}\bigg)^2
+    + mgR(1-\cos(2\arccos(u)))\\
+    L &= 2mR^2(1 - u^2)\bigg(\frac{4\dot{u}^2}{1 - u^2}\bigg)
+    + mgR(1 - 2\cos^2(\arccos(u)) + 1)\\
+    L &= 8mR^2\dot{u}^2 + 2mgR(1 - u^2)
+\end{align*}
+Then the Lagrange equation in terms of $u$ is
+\begin{align*}
+    \dv{t}(\pdv{L}{\dot u}) - \pdv{L}{u} = 16mR^2\ddot{u} + 4mgRu = 0
+\end{align*}
+Finally, we can write this equation as
+\begin{align*}
+    4R^2\ddot{u} + gRu &= 0\\
+    \ddot{u} &= -\frac{g}{4R}u
+\end{align*}
+This is the equation of a simple harmonic oscillator where $\omega^2 = g/4R$,
+or in terms of the period of oscillation $\omega = 2\pi/T$ then we get that
+\begin{align*}
+    \frac{4\pi^2}{T^2} &= \frac{g}{4R}\\
+    T^2 &= \frac{16\pi^2R}{g}\\
+    T &= 4\pi\sqrt{\frac{R}{g}}
+\end{align*}
+\end{proof}
+
+\cleardoublepage
+\begin{proof}{\textbf{1.7}}
+Let a projectile fired near the surface of the earth. Taking the Cartesian
+coordinates as the generalized coordinates we have that the kinetic energy is
+\begin{align*}
+    T = \frac{1}{2}mv^2 = \frac{1}{2}m(v_x^2 + v_y^2)
+\end{align*}
+And the potential energy is 
+\begin{align*}
+    V = mgy
+\end{align*}
+Therefore the lagrangian is given by
+\begin{align*}
+    L = T - V = \frac{1}{2}m(v_x^2 + v_y^2) - mgy
+\end{align*}
+We solve then Lagrange's equation to get the equations of motion as follows
+\begin{align*}
+    \dv{t}(\pdv{L}{v_x}) - \pdv{L}{x} + \pdv{\mathcal{F}}{v_x} &= 
+    m\dot{v}_x + \lambda v_x = 0\\
+    \dv{t}(\pdv{L}{v_y}) - \pdv{L}{y} + \pdv{\mathcal{F}}{v_y} &= 
+    m\dot{v}_y + mg + \lambda v_y = 0
+\end{align*}
+Then the equations of motion are
+\begin{align*}
+    \ddot{x} + \frac{\lambda}{m}\dot{x} = 0
+    \qquad
+    \ddot{y} + \frac{\lambda}{m}\dot{y} = -g
+\end{align*}
+\end{proof}
+
+\cleardoublepage
+\begin{proof}{\textbf{1.8}}
+\begin{itemize}
+\item [(a)] Let us define the following lagrangian
+\begin{align*}
+    L = e^{\lambda t/m}\bigg[\frac{m}{2}(\dot{x}^2 + \dot{y}^2) - mgy\bigg]
+\end{align*}
+Lagrange's equation for the $x$ coordinate is
+\begin{align*}
+    \dv{t}(\pdv{L}{\dot{x}}) - \pdv{L}{x} &= 0\\
+    \dv{t}(e^{\lambda t/m}m\dot{x}) &= 0\\
+    me^{\lambda t/m}\ddot{x} + \lambda e^{\lambda t/m}\dot{x} &= 0\\
+    \ddot{x} + \frac{\lambda}{m}\dot{x} &= 0
+\end{align*}
+And Lagrange's equation for the $y$ coordinate is
+\begin{align*}
+    \dv{t}(\pdv{L}{\dot{y}}) - \pdv{L}{y} &= 0\\
+    \dv{t}(e^{\lambda t/m}m\dot{y}) + mge^{\lambda t/m} &= 0\\
+    me^{\lambda t/m}\ddot{y} + \lambda e^{\lambda t/m}\dot{y}
+    + mge^{\lambda t/m} &= 0\\
+    \ddot{y} + \frac{\lambda}{m}\dot{y} &= -g
+\end{align*}
+\item [(b)] Let us solve the equations of motion now assuming the projectile is
+fired from the origin with a velocity of magnitude $v_0$ making an angle
+$\theta_0$ with the horizontal.
+
+We see that the equation for $x$ can be solved by integration, first let us
+rename $v = \dot{x}$ then the equation becomes
+\begin{align*}
+    \dv{v}{t} &= -\frac{\lambda}{m}v\\
+    \int \frac{dv}{v} &= -\frac{\lambda}{m} \int dt\\
+    \log(v) &= -\frac{\lambda}{m}t + C\\
+    v &= c_1e^{-\lambda t /m}
+\end{align*}
+Now, replacing back again $v$ and integrating again we get that
+\begin{align*}
+    \int dx &= c_1 \int e^{-\lambda t /m} dt\\
+    x &= -c_1\frac{m}{\lambda} e^{-\lambda t /m} + c_2
+\end{align*}
+We can determine the values of $c_1$ and $c_2$ by plugging in the initial
+conditions. We know that $x(t=0) = 0$ hence $0 = c_2 - c_1m/\lambda$.
+
+Also, we know that $\dot{x}(t=0) = v_0\cos\theta_0$ so since
+$\dot{x} = c_1e^{-\lambda t/m}$ we get that $c_1 = v_0\cos\theta_0$, and using
+this result we get that $c_2 = v_0m\cos\theta_0 /\lambda$.
+Then the equation for $x$ becomes
+\begin{align*}
+    x = \frac{v_0\cos\theta_0 m}{\lambda}(1 - e^{-\lambda t /m})
+\end{align*}
+
+On the other hand, to solve the equation for $y$ first we solve the homogeneous
+equation $\ddot{y} + \lambda \dot{y}/m = 0$ and then we add a particular
+solution to get the general solution. The homogeneous equation has the same
+form as the one we solved for $x$ so the solution is 
+\begin{align*}
+    y = c_2 -c_1\frac{m}{\lambda} e^{-\lambda t /m}
+\end{align*}
+Now, let us try the particular solution $y = -(mg/\lambda) t$ then
+we see that $\dot{y} = -mg/\lambda$ and $\ddot{y} = 0$ so we get that
+\begin{align*}
+    0 + \frac{\lambda}{m}\bigg(-\frac{mg}{\lambda}\bigg) = -g
+\end{align*}
+So $y = -(mg/\lambda) t$ is a particular solution. Then the general solution is
+\begin{align*}
+    y = c_2 -c_1\frac{m}{\lambda} e^{-\lambda t /m} - \frac{mg}{\lambda} t
+\end{align*}
+When $t=0$ we get that $y(t=0) = 0$ then $c_2 = c_1m/\lambda$. Also, we 
+have that $\dot{y} = c_1e^{-\lambda t/m} - mg/\lambda$ and when $t=0$
+we know that $\dot{y} = v_0\sin\theta_0$ so
+$c_1 = v_0\sin\theta_0 + mg/\lambda$ and hence $c_2 = v_0\sin\theta_0m/\lambda + m^2g/\lambda^2$.
+Therefore the general solution becomes
+\begin{align*}
+    y = \bigg(v_0\sin\theta_0\frac{m}{\lambda} + \frac{m^2g}{\lambda^2}\bigg)
+    (1 - e^{-\lambda t /m}) - \frac{mg}{\lambda} t
+\end{align*}
+
+\item [(c)] From the equation for $x$ we can get the time $t$ as follows
+\begin{align*}
+    1 - e^{-\lambda t/m} &= \frac{\lambda x}{m v_0\cos\theta_0}\\
+    -\frac{\lambda t}{m} &= \log\bigg(1 -  \frac{\lambda x}{m v_0\cos\theta_0}\bigg)\\
+    t &=- \frac{m}{\lambda}\log\bigg(1 -  \frac{\lambda x}{m v_0\cos\theta_0}\bigg)
+\end{align*}
+Now, replacing $t$ in the equation for $y$ we get the equation for the trajectory
+of the projectile
+\begin{align*}
+    y &= \bigg(v_0\sin\theta_0\frac{m}{\lambda} + \frac{m^2g}{\lambda^2}\bigg)
+    \frac{\lambda x}{m v_0\cos\theta_0} + \frac{m^2g}{\lambda^2}
+    \log\bigg(1 -  \frac{\lambda x}{m v_0\cos\theta_0}\bigg)\\
+    y &= \bigg(\tan\theta_0 + \frac{mg}{\lambda v_0\cos\theta_0}\bigg)x
+    + \frac{m^2g}{\lambda^2}
+    \log\bigg(1 -  \frac{\lambda x}{m v_0\cos\theta_0}\bigg)
+\end{align*}
+
+\end{itemize}
+\end{proof}
+
+\cleardoublepage
+\begin{proof}{\textbf{1.9}}
+\begin{itemize}
+\item [(a)] Taking the generalized coordinate $x$ from the middle point when
+both springs are at its natural length and $\theta$ measured from vertical
+then the coordinates of the mass $m$ are
+\begin{align*}
+    x' &= x + l\sin\theta\\
+    y' &= l\cos\theta
+\end{align*}
+So the velocities of $m$ are
+\begin{align*}
+    \dot{x'} &= \dot{x} + \dot{\theta} l\cos\theta\\
+    \dot{y'} &= -\dot{\theta}l\sin\theta
+\end{align*}
+Then the kinetic energy is
+\begin{align*}
+    T &= \frac{1}{2}m((\dot{x} + \dot{\theta} l\cos\theta)^2 + (-\dot{\theta}l\sin\theta)^2)\\
+    &= \frac{1}{2}m(\dot{x}^2 + 2\dot{x}\dot{\theta} l\cos\theta
+    + \dot{\theta}^2 l^2\cos^2\theta + \dot{\theta}^2l^2\sin^2\theta)\\
+    &= \frac{1}{2}m(\dot{x}^2 + 2\dot{x}\dot{\theta} l\cos\theta
+    + \dot{\theta}^2l^2)
+\end{align*}
+And the potential energy is 
+\begin{align*}
+    V &= -mgl\cos\theta + \frac{1}{2}k(x^2 + x^2) = -mgl\cos\theta + kx^2
+\end{align*}
+Where we assumed that the natural length of the springs is 0 for simplicity.
+\\
+Then the Lagrangian is given by
+\begin{align*}
+    L = T - V = \frac{1}{2}m(\dot{x}^2 + 2\dot{x}\dot{\theta} l\cos\theta
+    + \dot{\theta}^2l^2) + mgl\cos\theta - kx^2
+\end{align*}
+Now, we solve the Lagrange's equation as follows
+\begin{align*}
+    \dv{t}(\pdv{L}{\dot{x}}) - \pdv{L}{x} &= 0\\
+    \dv{t}(m(\dot{x} + \dot{\theta} l\cos\theta)) + 2kx &= 0\\
+    m(\ddot{x} + \ddot{\theta} l\cos\theta - \dot{\theta}^2l\sin\theta)
+    + 2kx &= 0
+\end{align*}
+And
+\begin{align*}
+    \dv{t}(\pdv{L}{\dot{\theta}}) - \pdv{L}{\theta} &= 0\\
+    \dv{t}(m(\dot{x}l\cos\theta + \dot{\theta} l^2))
+    + m\dot{x}\dot{\theta}l\sin\theta + mgl\sin\theta&= 0\\
+    m(\ddot{x}l\cos\theta - \dot{x}\dot{\theta}l\sin\theta + \ddot{\theta} l^2)
+    + m\dot{x}\dot{\theta}l\sin\theta + mgl\sin\theta&= 0\\
+    m(\ddot{x}l\cos\theta + \ddot{\theta} l^2) + mgl\sin\theta&= 0
+\end{align*}
+
+\cleardoublepage
+\item [(b)] In the case of small angular oscillations $\sin\theta \approx \theta$
+and $\cos\theta \approx 1$ and terms such as $\theta^n$ and $\dot\theta^n$ can
+be neglected. Then the equations of motion become
+\begin{align*}
+    m(\ddot{x} + \ddot{\theta} l) + 2kx &= 0\\
+    m(\ddot{x} + \ddot{\theta} l) + mg\theta &= 0
+\end{align*}
+Then subtracting both equations we see that
+\begin{align*}
+    2kx - mg\theta &= 0\\
+    x &= \frac{mg}{2k}\theta
+\end{align*}
+So $x$ can be written as $x = \alpha \theta$ where $\alpha = mg/2k$.
+
+Now, computing $\ddot{x} = \alpha \ddot{\theta}$ and replacing it in the second
+approximated equation of motion gives us
+\begin{align*}
+    m(\alpha\ddot{\theta} + \ddot{\theta} l) + mg\theta &= 0\\
+    \ddot{\theta}(l + \alpha) + g\theta &= 0\\
+    \ddot{\theta} + \frac{g}{l'}\theta &= 0
+\end{align*}
+We see that the last equation is the differential equation which governs a
+small oscillation pendulum of length $l'$ where $l'$ is
+\begin{align*}
+    l' = l + \frac{mg}{2k}
+\end{align*}
+\end{itemize}
+\end{proof}
+
+\cleardoublepage
+\begin{proof}{\textbf{1.10}}
+Let the force between two charged particles in motion be
+\begin{align*}
+    F = \frac{ee'}{r^2}\bigg[1 + \frac{r\ddot{r}}{c^2} - \frac{\dot{r}^2}{2c^2}\bigg]
+    = ee'\bigg[\frac{1}{r^2} + \frac{\ddot{r}}{rc^2} - \frac{\dot{r}^2}{2r^2c^2}\bigg]
+\end{align*}
+Let us define the generalised potential as follows
+\begin{align*}
+    U = ee'\bigg[\frac{1}{r} + \frac{\dot{r}^2}{2rc^2}\bigg]
+\end{align*}
+Then we see that $F$ can be written as 
+\begin{align*}
+    F &= -\pdv{U}{r} + \dv{t}(\pdv{U}{\dot{r}})\\
+    &= ee'\bigg[\bigg(\frac{1}{r^2} + \frac{\dot{r}^2}{2r^2c^2}\bigg)
+    + \bigg(\frac{\ddot{r}}{rc^2} - \frac{\dot{r}^2}{r^2c^2}\bigg)\bigg]\\
+    &= ee'\bigg[\frac{1}{r^2} + \frac{\ddot{r}}{rc^2} - \frac{\dot{r}^2}{2r^2c^2}\bigg]
+\end{align*}
+So $U$ is the generalised potential associated to $F$.
+\\
+Now, if a charge is in the presence of another charge held fixed at the origin,
+then the force $F$ is the force between them, but $r$ is the polar radial
+coordinate of the free charge. Then the kinetic energy of the system is
+\begin{align*}
+    T = \frac{m}{2}(\dot{r}^2 + r^2\dot{\theta}^2)
+\end{align*}
+Where $m$ is the mass of the charge. Then the Lagrangian of the system is
+\begin{align*}
+    L = T - U = \frac{m}{2}(\dot{r}^2 + r^2\dot{\theta}^2)
+    - ee'\bigg[\frac{1}{r} + \frac{\dot{r}^2}{2rc^2}\bigg]
+\end{align*}
+Therefore the Lagrange's equations are
+\begin{align*}
+    \dv{t}(\pdv{L}{\dot{r}}) - \pdv{L}{r} &= 0\\
+    \dv{t}(m\dot{r} - \frac{ee'\dot{r}}{rc^2})
+    - \bigg[mr\dot{\theta}^2 + ee'\bigg[\frac{1}{r^2}
+    + \frac{\dot{r}^2}{2r^2c^2}\bigg]\bigg] &= 0\\
+    m\ddot{r} - ee'\bigg[\frac{\ddot{r}}{rc^2} - \frac{\dot{r}^2}{r^2c^2}\bigg]
+    - \bigg[mr\dot{\theta}^2 + ee'\bigg[\frac{1}{r^2}
+    + \frac{\dot{r}^2}{2r^2c^2}\bigg]\bigg] &= 0\\
+    m(\ddot{r} - r\dot{\theta}^2) - ee'\bigg[
+    \frac{1}{r^2} + \frac{\ddot{r}}{rc^2} - \frac{\dot{r}^2}{2r^2c^2}
+    \bigg] &= 0
+\end{align*}
+And
+\begin{align*}
+    \dv{t}(\pdv{L}{\dot{\theta}}) - \pdv{L}{\theta} &= 0\\
+    mr^2\dot{\theta} &= 0
+\end{align*}
+But, we see from the last equation that $\dot{\theta} = 0$ then the first
+equation of motion becomes 
+\begin{align*}
+    m\ddot{r} &= ee'\bigg[
+    \frac{1}{r^2} + \frac{\ddot{r}}{rc^2} - \frac{\dot{r}^2}{2r^2c^2}
+    \bigg]
+\end{align*}
+\end{proof}
+
+\cleardoublepage
+\begin{proof}{\textbf{1.16}}
+Let Bateman's Lagrangian
+\begin{align*}
+    L = e^{\lambda t}\bigg(\frac{m}{2}\dot{x}^2 - \frac{m\omega^2}{2}x^2\bigg)
+\end{align*}
+Then Lagrange's equation for this Lagrangian is
+\begin{align*}
+    \dv{t}(\pdv{L}{\dot{x}}) - \pdv{L}{x} &= 0\\
+    \dv{t}(e^{\lambda t}m\dot{x}) - e^{\lambda t}m\omega^2x&= 0\\
+    \lambda e^{\lambda t}m\dot{x} + e^{\lambda t}m\ddot{x}
+    - e^{\lambda t}m\omega^2x&= 0\\
+    \ddot{x} + \lambda \dot{x} - \omega^2x&= 0
+\end{align*}
+We see that this is the equation of motion of a damped harmonic oscillator.
+\\
+Let us define $q = e^{\lambda t/2}x$ then we see that $q^2 = e^{\lambda t}x^2$,
+also, from the derivative of $q$ with respect to time we see that
+\begin{align*}
+    \dot{q} &= \frac{\lambda}{2}e^{\lambda t /2}x + e^{\lambda t /2}\dot{x}\\
+    e^{\lambda t /2}\dot{x} &= \dot{q} - \frac{\lambda}{2}e^{\lambda t /2}x\\
+    e^{\lambda t /2}\dot{x} &= \dot{q} - \frac{\lambda}{2}q\\
+    e^{\lambda t}\dot{x}^2 &= \bigg(\dot{q} - \frac{\lambda}{2}q\bigg)^2
+\end{align*}
+Then the Lagrangian $L$ becomes
+\begin{align*}
+    L &= e^{\lambda t}\frac{m}{2}\dot{x}^2 - e^{\lambda t}\frac{m\omega^2}{2}x^2
+    = \frac{m}{2}\bigg(\dot{q} - \frac{\lambda}{2}q\bigg)^2
+    - \frac{m\omega^2}{2}q^2
+\end{align*}
+Hence the Lagrangian doesn't have an explicit time dependence.
+\end{proof}
+
+\cleardoublepage
+\begin{proof}{\textbf{1.18}}
+\begin{itemize}
+\item [(a)] Let us consider Atwood's machine in terms of $x = x_1$ with a
+massive pulley and a massive string with uniform linear mass density $\lambda$.
+\\
+The kinetic energy of the system is then given by
+\begin{align*}
+    T = \frac{1}{2}(m_1 + m_2 + m_s)\dot{x}^2 + \frac{1}{2} I \omega^2
+\end{align*}
+Where the first term takes into account the masses $m_1$, $m_2$ and the mass
+of the string $m_s$. The second term is the rotational kinetic energy because
+of the massive pulley, but we know that $\omega = \dot{x}/R$ where $R$ is the
+radius of the pulley, then
+\begin{align*}
+    T = \frac{1}{2}(m_1 + m_2 + m_s + I/R^2)\dot{x}^2
+\end{align*}
+On the other hand, the potential energy because of the masses $m_1$ and $m_2$
+is $-m_1gx + m_2gx$ since when one mass goes up the other goes down by the same
+amount.
+\\
+Now, for the string, let $l$ be the length of the hanging part of the string,
+then the mass of the string on the left side is
+$\lambda x_1 = \lambda x$ and the mass on the right side is then
+$\lambda (l - x)$. Taking into account the displacements of the centers
+of mass of each side we get that the total potential energy is
+\begin{align*}
+    V &= -m_1gx + m_2gx - \lambda xg\frac{x}{2} - \lambda (l - x)g\frac{(l - x)}{2}\\
+    &= (m_2 - m_1)gx - \frac{\lambda g}{2}x^2 - \frac{\lambda g}{2} (l - x)^2
+\end{align*}
+Therefore the Lagrangian of the system is
+\begin{align*}
+        L &= \frac{1}{2}(m_1 + m_2 + m_s + I/R^2)\dot{x}^2
+        + (m_1 - m_2)gx + \frac{\lambda g}{2}x^2 + \frac{\lambda g}{2} (l - x)^2
+\end{align*}
+
+\item [(b)] Lagrange's equation for $x$ is then
+\begin{align*}
+    \dv{t}(\pdv{L}{\dot{x}}) - \pdv{L}{x} &= 0\\
+    \dv{t}((m_1 + m_2 + m_s + I/R^2)\dot{x}) - 
+    (m_1 - m_2)g - \lambda gx + \lambda g (l - x) &= 0\\
+    (m_1 + m_2 + m_s + I/R^2)\ddot{x} - 
+    (m_1 - m_2)g - \lambda gx + \lambda g (l - x) &= 0
+\end{align*}
+\item [(c)] Let $m_1 = m_2 = 0$ then the equation of motion becomes
+\begin{align*}
+    (m_s + I/R^2)\ddot{x} - \lambda gx + \lambda g (l - x) &= 0\\
+    (m_s + I/R^2)\ddot{x} - 2\lambda gx + \lambda g l &= 0\\
+    \ddot{x} - b^2x + \frac{b^2l}{2} &= 0
+\end{align*}
+Where $b = \sqrt{2\lambda g/(m_s + I/R^2)}$. We know that the solution to this
+differential equation is
+\begin{align*}
+    x(t) = c_1 e^{bt} + c_2 e^{-bt} + \frac{l}{2}
+\end{align*}
+From the initial conditions $x(0)=x_0$ and $\dot{x}(0) = 0$ we can determine
+$c_1$ and $c_2$, so we get that
+\begin{align*}
+    c_1 + c_2 = x_0 - \frac{l}{2}
+\end{align*}
+And from $\dot{x}(t) = c_1be^{bt} - c_2be^{-bt}$ we get that $0 = c_1 - c_2$ so
+\begin{align*}
+    c_1 = c_2 = \frac{1}{2}\bigg(x_0 - \frac{l}{2}\bigg)
+\end{align*}
+Therefore
+\begin{align*}
+    x(t) &= \frac{1}{2}\bigg(x_0 - \frac{l}{2}\bigg)(e^{bt} + e^{-bt}) + \frac{l}{2}\\
+    &= \bigg(x_0 - \frac{l}{2}\bigg)\frac{e^{bt} + e^{-bt}}{2} + \frac{l}{2}\\
+    &= \bigg(x_0 - \frac{l}{2}\bigg)\cosh bt + \frac{l}{2}
+\end{align*}
+If $x_0 = l/2$ we get that $x(t) = l/2$ which is the right physically expected
+solution since each half of the string is hanging statically on each side of
+the pulley.
+
+\item [(d)] The exponential behaviour of the speed of the string for $t$ larger
+than a few time constants is physically correct since we are considering the
+case $m_1 = m_2 = 0$, so the string would slip and fall off the pulley increasing
+its velocity infinitely.
+\end{itemize}
+\end{proof}
+
+\cleardoublepage
+\begin{proof}{\textbf{1.19}}
+Let the following lagrangian
+\begin{align*}
+    L = \frac{1}{2}\frac{1}{1 + \lambda x^2}\bigg(\dot{x}^2 - \omega_0^2x^2\bigg)
+    \quad\text{with}\quad \lambda > 0
+\end{align*}
+\begin{itemize}
+\item [(a)] Then Lagrange's equation for $x$ is
+\begin{align*}
+    \dv{t}(\pdv{L}{\dot{x}}) - \pdv{L}{x} &= 0\\
+    \dv{t}(\frac{\dot{x}}{1 + \lambda x^2})
+    - \frac{1}{2}\bigg(
+        -\frac{2\lambda x}{(1 + \lambda x^2)^2}(\dot{x}^2 - \omega_0^2x^2)
+        -\frac{2\omega_0^2x}{1 + \lambda x^2}
+    \bigg)
+    &= 0\\
+    \bigg(\frac{\ddot{x}}{1 + \lambda x^2}
+    - \frac{2\lambda x \dot{x}^2}{(1 + \lambda x^2)^2}\bigg)
+    + \bigg(
+        \frac{\lambda x}{(1 + \lambda x^2)^2}(\dot{x}^2 - \omega_0^2x^2)
+        + \frac{\omega_0^2x}{1 + \lambda x^2}
+    \bigg)
+    &= 0\\
+    \bigg(\frac{\ddot{x}(1 + \lambda x^2)- 2\lambda x \dot{x}^2}{(1 + \lambda x^2)^2}\bigg)
+    + \frac{\lambda x\dot{x}^2 - \omega_0^2\lambda xx^2 + \omega_0^2x(1 + \lambda x^2)}
+    {(1 + \lambda x^2)^2}
+    &= 0\\
+    \ddot{x}(1 + \lambda x^2)- 2\lambda x \dot{x}^2
+    + \lambda x\dot{x}^2 - \omega_0^2\lambda xx^2 + \omega_0^2x(1 + \lambda x^2)
+    &= 0\\
+    \ddot{x}(1 + \lambda x^2)- \lambda x \dot{x}^2 + \omega_0^2x &= 0
+\end{align*}
+\item [(b)] Let
+\begin{align*}
+    x = A\sin(\omega t + \delta)
+\end{align*}
+Then 
+\begin{align*}
+    \dot{x} = A\omega\cos(\omega t + \delta)
+    \quad\text{and}\quad
+    \ddot{x} = -A\omega^2\sin(\omega t + \delta)
+\end{align*}
+So replacing in the equation of motion we got from part (a) we see that
+\begin{align*}
+    &\ddot{x}(1 + \lambda x^2)- \lambda x \dot{x}^2 + \omega_0^2x = 0\\
+    %
+    &-A\omega^2\sin(\omega t + \delta)(1 + \lambda A^2\sin^2(\omega t + \delta))
+    - \lambda A\sin(\omega t + \delta) A^2\omega^2\cos^2(\omega t + \delta)\\
+    &\quad+ \omega_0^2A\sin(\omega t + \delta)
+    = 0\\
+    %
+    &-A\omega^2\sin(\omega t + \delta)
+    - \lambda A^3\omega^2\sin^3(\omega t + \delta)
+    - \lambda A^3\omega^2\sin(\omega t + \delta)\cos^2(\omega t + \delta)\\
+    &\quad+ \omega_0^2A\sin(\omega t + \delta)
+    = 0
+\end{align*}
+We see that if $t = n\pi/\omega - \delta$ for $n = 0, 1, ...$ the equation is
+satisfied, so let us assume $t \neq n\pi/\omega - \delta$ and hence
+$\sin(\omega t + \delta) \neq 0$ then dividing by $\sin(\omega t + \delta)$
+we get that
+\begin{align*}
+    -A\omega^2 - \lambda A^3\omega^2\sin^2(\omega t + \delta)
+    - \lambda A^3\omega^2\cos^2(\omega t + \delta) + \omega_0^2A
+    &= 0\\
+    -A\omega^2 - \lambda A^3\omega^2(\sin^2(\omega t + \delta)
+    + \cos^2(\omega t + \delta)) + \omega_0^2A
+    &= 0\\
+    \omega^2 + \lambda A^2\omega^2 - \omega_0^2
+    &= 0
+\end{align*}
+So we see that this equation is satisfied if
+$\omega^2 + \lambda A^2\omega^2 = \omega_0^2$. Therefore $\omega^2$ must have
+the following value
+\begin{align*}
+    \omega^2 &= \frac{\omega_0^2}{1 + \lambda A^2}
+\end{align*}
+\end{itemize}
+\end{proof}
+
+\cleardoublepage
+\begin{proof}{\textbf{1.20}}
+From equation (1.162) and taking $V(r) = -\kappa/r$ we get that
+\begin{align*}
+    E &= \frac{m}{2}\bigg(\dv{r}{t}\bigg)^2 + \frac{l^2}{2mr^2} - \frac{\kappa}{r}
+\end{align*}
+So
+\begin{align*}
+    \frac{m}{2}\bigg(\dv{r}{t}\bigg)^2
+    &= E + \frac{\kappa}{r} - \frac{l^2}{2mr^2}\\
+    \dv{r}{t}
+    &= \sqrt{\frac{2}{m}}\sqrt{ E + \frac{\kappa}{r} - \frac{l^2}{2mr^2}}
+\end{align*}
+Now, we integrate from $t = 0$ where $r = r_{min}$ (since the planet is at the
+perihelion) to $t$ and $r$
+\begin{align*}
+    \int_0^t dt &= \sqrt{\frac{m}{2}}\int_{r_{min}}^r 
+    \frac{dr}{\sqrt{ E + \frac{\kappa}{r} - \frac{l^2}{2mr^2}}}
+\end{align*}
+Also, we see that
+\begin{align*}
+    t &= \sqrt{\frac{m}{2}}\int_{r_{min}}^r 
+    \frac{dr}{\sqrt{\frac{\kappa}{r^2}
+    \big(\frac{Er^2}{\kappa} + r - \frac{l^2}{2m\kappa}\big)}}\\
+    &= \sqrt{\frac{m}{2\kappa}}\int_{r_{min}}^r 
+    \frac{rdr}{\sqrt{\frac{Er^2}{\kappa} + r - \frac{l^2}{2m\kappa}}}\\
+    &= \sqrt{\frac{m}{2\kappa}}\int_{r_{min}}^r 
+    \frac{rdr}{\sqrt{\frac{Er^2}{\kappa} + r - \frac{p}{2}}}
+\end{align*}
+Where $p = l^2/m\kappa$. We know as well that $e = \sqrt{1 + 2El^2/m\kappa^2}$
+so
+\begin{align*}
+    -\frac{m}{2l^2}(1 - e^2) = \frac{E}{\kappa^2}
+\end{align*}
+But also since $a = p(1 - e^2)^{-1}$ we get that 
+\begin{align*}
+    \frac{E}{\kappa} &= -\frac{m\kappa}{2l^2}(1 - e^2)
+    = -\frac{1}{2p}(1 - e^2)
+    = -\frac{1}{2a}
+\end{align*}
+then
+\begin{align*}
+    t &= \sqrt{\frac{m}{2\kappa}}\int_{r_{min}}^r 
+    \frac{rdr}{\sqrt{r -\frac{r^2}{2a} - \frac{a(1- e^2)}{2}}}
+\end{align*}
+Where we also used that $p = a(1 - e^2)$.
+\\
+Now, let us define $\psi$ as $r = a(1 - e\cos\psi)$ so $dr = ea\sin\psi d\psi$.
+Then, replacing in the integral we get that
+\begin{align*}
+    t &= \sqrt{\frac{m}{2\kappa}}\int_{0}^\psi 
+    \frac{ea^2(1 - e\cos\psi)\sin\psi d\psi}
+    {\sqrt{a(1 - e\cos\psi) -\frac{a(1 - e\cos\psi)^2}{2} - \frac{a(1- e^2)}{2}}}
+    \\
+    &= \sqrt{\frac{m}{2\kappa}}\int_{0}^\psi 
+    \frac{e\sqrt{a^3}(1 - e\cos\psi)\sin\psi d\psi}
+    {\sqrt{1 - e\cos\psi - \frac{1 - 2e\cos\psi + e^2\cos^2\psi}{2}
+    - \frac{1- e^2}{2}}}
+    \\
+    &= \sqrt{\frac{ma^3}{2\kappa}}\int_{0}^\psi 
+    \frac{e(1 - e\cos\psi)\sin\psi d\psi}
+    {\sqrt{1 - e\cos\psi - \frac{1}{2} + e\cos\psi - \frac{e^2\cos^2\psi}{2}
+    - \frac{1}{2} + \frac{e^2}{2}}}
+    \\
+    &= \sqrt{\frac{ma^3}{2\kappa}}\int_{0}^\psi 
+    \frac{e(1 - e\cos\psi)\sin\psi d\psi}
+    {\sqrt{\frac{e^2}{2} - \frac{e^2\cos^2\psi}{2}}}
+    \\
+    &= \sqrt{\frac{ma^3}{2\kappa}}\int_{0}^\psi 
+    \frac{\sqrt{2}(1 - e\cos\psi)\sin\psi d\psi}{\sqrt{(1 - \cos^2\psi)}}
+    \\
+    &= \sqrt{\frac{ma^3}{\kappa}}\int_{0}^\psi 
+    \frac{(1 - e\cos\psi)\sin\psi d\psi}{\sin\psi}\\
+    &= \sqrt{\frac{ma^3}{\kappa}}\int_{0}^\psi(1 - e\cos\psi) d\psi\\
+    &= \sqrt{\frac{ma^3}{\kappa}}(\psi - e\sin\psi)
+\end{align*}
+Therefore naming $\omega = \sqrt{\kappa/ma^3}$ we get that
+\begin{align*}
+    \omega t = \psi - e\sin\psi
+\end{align*}
+\end{proof}
+
+\cleardoublepage
+\begin{proof}{\textbf{Exercise 1.7.1}}
+Let a circular orbit such that $r = r_0$ then energy of the system is
+\begin{align*}
+    E_0 = \frac{1}{2}m\dot{r}^2 + V_{\text{eff}}(r)
+\end{align*}
+But since $r$ is constant then we have that $\dot{r} = 0$ and hence
+\begin{align*}
+    E_0 = V_{\text{eff}}(r_0)
+\end{align*}
+Then taking the time derivative we get that $V'_{\text{eff}}(r_0) = 0$
+since $E_0$ is constant.
+\\
+But also we know that $V_{\text{eff}}(r) = l^2/2mr^2 + V(r)$ hence taking the
+derivative and making it equal to 0 we get that
+\begin{align*}
+    -\frac{l^2}{mr^3} + V'(r) &= 0
+\end{align*}
+or replacing $r = r_0$ we get that $V'(r_0) = l^2/mr_0^3$.
+\\
+Finally, taking the second derivative of $V_{\text{eff}}(r)$ we get that
+\begin{align*}
+    V''_{\text{eff}}(r_0) &= \frac{3l^2}{mr_0^4} + V''(r_0)
+    = \frac{3}{r_0}\frac{l^2}{mr_0^3} + V''(r_0)
+    = \frac{3}{r_0}V'(r_0) + V''(r_0)
+\end{align*}
+\end{proof}
+
+\cleardoublepage
+\begin{proof}{\textbf{Exercise 1.7.2}}
+\begin{itemize}
+\item [(1)] Let $0 < e < 1$, the equation for $r$ is
+\begin{align*}
+    r = \frac{l^2}{m\kappa}\frac{1}{(1 + e\cos\phi)}
+\end{align*}
+Then the maximum and minimum of $r$ happen for $\phi = \pi$ and $\phi = 0$
+respectively. For $\phi = \pi$ we have that $\cos\pi = -1$ and hence
+\begin{align*}
+    r_{\text{max}} = \frac{l^2}{m\kappa}\frac{1}{1 - e} = p(1 - e)^{-1}
+\end{align*}
+And for $\phi = 0$ we get that $\cos 0 = 1$ so
+\begin{align*}
+    r_{\text{min}} = \frac{l^2}{m\kappa}\frac{1}{1 + e} = p(1 + e)^{-1}
+\end{align*}
+Where $p = l^2/m\kappa$. Also, since the semi-major axis of an ellipse is
+given by $a = (r_{\text{max}} + r_{\text{min}})/2$ we get that
+\begin{align*}
+    a = \frac{p(1 - e)^{-1} + p(1 + e)^{-1}}{2}
+    = p\frac{1 + e + 1 - e}{2(1 - e)(1 + e)}
+    = p(1 - e^2)^{-1}
+\end{align*}
+
+\item [(2)] We know that $dA = \frac{1}{2}r^2d\phi$ then dividing by $dt$
+\begin{align*}
+    \dv{A}{t} &= \frac{1}{2}r^2\dv{\phi}{t}
+\end{align*}
+But we know that $l = mr^2\dot\phi$ then
+\begin{align*}
+    \dv{A}{t} &= \frac{1}{2m}mr^2\dv{\phi}{t} = \frac{l}{2m}
+\end{align*}
+Which is Kepler's second law.
+
+\item [(3)] From Kepler's second law we know that $dA = (l/2m)dt$ so by
+integration we get that
+\begin{align*}
+    \frac{l}{2m}\int_0^\tau dt &= \int_0^A dA\\
+    \tau &= \frac{2m}{l}A
+\end{align*}
+Replacing $A = \pi ab$ and $b = a\sqrt{1 - e^2}$ we get that
+\begin{align*}
+    \tau &= \frac{2m}{l}\pi ab = \frac{2\pi m a^2}{l}\sqrt{1 - e^2}
+\end{align*}
+Also from $a = p(1 -e^2)^{-1}$ we know that $1 - e^2 = p/a$ hence
+\begin{align*}
+    \tau &= \frac{2\pi m a^2}{l}\sqrt{\frac{p}{a}}
+    = \frac{2\pi m a^2}{l}\sqrt{\frac{l^2}{m\kappa a}}
+    = \frac{2\pi a^2}{\sqrt{a}}\sqrt{\frac{m}{\kappa}}
+    = 2\pi a^{3/2}\sqrt{\frac{m}{\kappa}}
+\end{align*}
+
+\end{itemize}
+\end{proof}
 \end{document}
